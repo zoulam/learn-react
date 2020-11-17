@@ -3,6 +3,19 @@ function say() {
     alert('hello')
 }
 
+class MyComponent extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            number: 1
+        }
+    }
+
+    render() {
+        return this.state.number
+    }
+}
 
 let element = React.createElement(
     "div", { name: "father" }, "hello",
@@ -12,4 +25,7 @@ let element = React.createElement(
 
 
 // React.render('hello react', document.getElementById('root'))
-React.render(element, document.getElementById('root'))
+// React.render(element, document.getElementById('root'))
+React.render(React.createElement(MyComponent, {
+    name: "component"
+}), document.getElementById('root'))

@@ -1,10 +1,12 @@
 import $ from 'jquery'
 import createReactUnit from './unit.js'
 import createElement from './element.js'
+import Component from './component.js'
 const React = {
     render,
     nextRootIndex: 0,
-    createElement
+    createElement,
+    Component
 }
 
 function render(element, container) {

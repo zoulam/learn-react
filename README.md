@@ -17,14 +17,20 @@
 > ​	2、参数1插入html的父元素
 
 ```
-参数1的功能拆分
-	1、
+render
+文本或数字节点
+    span包裹
+html普通节点
+	正常渲染，对子组件递归渲染，同时绑定事件
+类组件
+	执行 new Component(props) 在获取render函数的返回值
+	递归解析返回值，返回值类型：1、文本或数字节点 2、 html普通节点 3、类组件
+	最后转化成普通html文本
 ```
 
 > `createElement` 创建虚拟dom 即使用对象来描述dom节点
 
 ```javascript
-
 <div name="father">hello<span>children</span></div>
     -----------------------babel转义之后-----------------------------
 React.createElement("div", {
