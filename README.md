@@ -23,8 +23,8 @@ render
 html普通节点
 	正常渲染，对子组件递归渲染，同时绑定事件
 类组件
-	执行 new Component(props) 在获取render函数的返回值
-	递归解析返回值，返回值类型：1、文本或数字节点 2、 html普通节点 3、类组件
+	执行 new Component(props) 在获取render函数的返回值 直接执行componentWillMounte
+	递归解析返回值，返回值类型：1、文本或数字节点 2、 html普通节点 3、类组件 在递归结束前收集componentDidMounted的依赖
 	最后转化成普通html文本
 ```
 
@@ -32,7 +32,7 @@ html普通节点
 
 ```javascript
 <div name="father">hello<span>children</span></div>
-    -----------------------babel转义之后-----------------------------
+-----------------------babel转义之后-----------------------------
 React.createElement("div", {
   name: "father"
 }, "hello", React.createElement("span", null, "children"));

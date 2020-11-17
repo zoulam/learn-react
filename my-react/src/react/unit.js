@@ -47,10 +47,15 @@ class ReactCompositUnit extends Unit {
         this._rootId = rootId
         const { type: Component, props } = this.currentElement
         const componentInstance = new Component(props)
+        componentInstance.componentWillMount && componentInstance.componentWillMount()
+
         const reactComponentRenderer = componentInstance.render()
         // 递归render 1、文本节点 2、普通节点 3、其他组件
         const reactComponentUnitInstance = createReactUnit(reactComponentRenderer)
         let markup = reactComponentUnitInstance.getMarkUp(rootId)
+        $(document).on('mounted',()=>{
+            componentInstance.componentDidMount && componentInstance.componentDidMount()
+        })
         return markup
     }
 }

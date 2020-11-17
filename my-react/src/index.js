@@ -3,6 +3,26 @@ function say() {
     alert('hello')
 }
 
+class Child extends React.Component{
+    constructor(props) {
+        super(props)
+        this.state={
+            number:123
+        }
+    }
+
+    componentWillMount() {
+        console.log('child 组件将要挂载');
+    }
+
+    componentDidMount() {
+        console.log('child 组件将要挂载');
+    }
+
+    render() {
+        return this.state.number
+    }
+}
 class MyComponent extends React.Component {
 
     constructor(props) {
@@ -12,8 +32,16 @@ class MyComponent extends React.Component {
         }
     }
 
+    componentWillMount() {
+        console.log('parent 组件将要挂载');
+    }
+
+    componentDidMount() {
+        console.log('parent 组件将要挂载');
+    }
+
     render() {
-        return this.state.number
+        return <Child />
     }
 }
 

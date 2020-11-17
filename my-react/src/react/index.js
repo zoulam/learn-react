@@ -14,6 +14,7 @@ function render(element, container) {
     let markUp = createReactUnitInstance.getMarkUp(React.nextRootIndex)
     // let markUp = `<span data-reactid="${React.nextRootIndex}">${element}<span>`
     $(container).html(markUp)
+    $(document).trigger('mounted') // 挂载完成
 }
 
 
